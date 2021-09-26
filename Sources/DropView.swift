@@ -29,7 +29,9 @@ internal final class DropView: UIView {
         super.init(frame: .zero)
 
 		backgroundColor = drop.style.color
-		layer.cornerCurve = .continuous
+		if #available(iOS 13.0, *) {
+			layer.cornerCurve = .continuous
+		}
 
         addSubview(stackView)
 

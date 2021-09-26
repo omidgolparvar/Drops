@@ -160,7 +160,11 @@ extension Drop {
 		internal var color: UIColor {
 			switch self {
 			case .normal:
-				return .systemBackground
+				if #available(iOS 13.0, *) {
+					return .systemBackground
+				} else {
+					return .white
+				}
 				
 			case .error:
 				return .systemRed
