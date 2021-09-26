@@ -41,6 +41,8 @@
 		078898D02644A6CC009F04A5 /* WindowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0785D37D26416DDF004D6171 /* WindowViewController.swift */; };
 		07CEDD3B2645EEC0004EE4CD /* DropsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CEDD3A2645EEBF004EE4CD /* DropsTests.swift */; };
 		07D8147726361DB7003F51DB /* Drops.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D8146D26361DB7003F51DB /* Drops.framework */; };
+		1A72737F26EA0B9300E764F9 /* Vazir-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A72737D26EA0B9300E764F9 /* Vazir-Regular.ttf */; };
+		1A72738026EA0B9300E764F9 /* Vazir-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A72737E26EA0B9300E764F9 /* Vazir-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +132,8 @@
 		07D8147D26361DB7003F51DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07D8148B26361DC6003F51DB /* Drop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drop.swift; sourceTree = "<group>"; };
 		07D8149D26361DE8003F51DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../UIKitExample/ViewController.swift; sourceTree = "<group>"; };
+		1A72737D26EA0B9300E764F9 /* Vazir-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Vazir-Regular.ttf"; sourceTree = "<group>"; };
+		1A72737E26EA0B9300E764F9 /* Vazir-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Vazir-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +175,8 @@
 			isa = PBXGroup;
 			children = (
 				074941FA2642CCD50031D338 /* Info.plist */,
+				1A72737E26EA0B9300E764F9 /* Vazir-Bold.ttf */,
+				1A72737D26EA0B9300E764F9 /* Vazir-Regular.ttf */,
 				074941EC2642CCD20031D338 /* AppDelegate.swift */,
 				074941EE2642CCD20031D338 /* SceneDelegate.swift */,
 				07D8149D26361DE8003F51DB /* ViewController.swift */,
@@ -397,8 +403,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A72738026EA0B9300E764F9 /* Vazir-Bold.ttf in Resources */,
 				074941F92642CCD40031D338 /* LaunchScreen.storyboard in Resources */,
 				074941F62642CCD40031D338 /* Assets.xcassets in Resources */,
+				1A72737F26EA0B9300E764F9 /* Vazir-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -768,7 +776,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -797,7 +805,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

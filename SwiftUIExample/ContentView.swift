@@ -96,8 +96,8 @@ struct ContentView: View {
     private func showDrop() {
         UIApplication.shared.endEditing()
 
-        let title = title.trimmingCharacters(in: .whitespacesAndNewlines)
-        let subtitle = subtitle.trimmingCharacters(in: .whitespacesAndNewlines)
+		let title = self.title.trimmingCharacters(in: .whitespacesAndNewlines)
+		let subtitle = self.subtitle.trimmingCharacters(in: .whitespacesAndNewlines)
         let position: Drop.Position = positionIndex == 0 ? .top : .bottom
 
         let icon = hasIcon ? UIImage(systemName: "star.fill") : nil

@@ -28,11 +28,8 @@ internal final class DropView: UIView {
         self.drop = drop
         super.init(frame: .zero)
 
-        if #available(iOS 13.0, *) {
-            backgroundColor = .secondarySystemBackground
-        } else {
-            backgroundColor = .white
-        }
+		backgroundColor = drop.style.color
+		layer.cornerCurve = .continuous
 
         addSubview(stackView)
 
@@ -71,11 +68,11 @@ internal final class DropView: UIView {
         var insets = UIEdgeInsets(top: 7.5, left: 12.5, bottom: 7.5, right: 12.5)
 
         if drop.icon == nil {
-            insets.left = 40
+            insets.right = 40
         }
 
         if drop.action?.icon == nil {
-            insets.right = 40
+            insets.left = 40
         }
 
         if drop.subtitle == nil {
@@ -84,7 +81,7 @@ internal final class DropView: UIView {
             if drop.action?.icon != nil {
                 insets.top = 10
                 insets.bottom = 10
-                insets.right = 10
+                insets.left = 10
             }
         }
 
@@ -107,15 +104,33 @@ internal final class DropView: UIView {
         clipsToBounds = true
 
         titleLabel.text = drop.title
+		if let font = drop.titleFont {
+			titleLabel.font = font
+		}
 
         subtitleLabel.text = drop.subtitle
         subtitleLabel.isHidden = drop.subtitle == nil
+		if drop.subtitle != nil,
+		   let font = drop.subtitleFont {
+			subtitleLabel.font = font
+		}
 
         imageView.image = drop.icon
         imageView.isHidden = drop.icon == nil
 
         button.setImage(drop.action?.icon, for: .normal)
         button.isHidden = drop.action?.icon == nil
+		
+		switch drop.style {
+		case .normal:
+			break
+		case .error,
+			 .success,
+			 .info:
+			titleLabel.textColor = .white
+			subtitleLabel.textColor = .white
+			imageView.tintColor = .white
+		}
 
         if let action = drop.action, action.icon == nil {
             let tap = UITapGestureRecognizer(target: self, action: #selector(didTapButton))
@@ -167,10 +182,9 @@ internal final class DropView: UIView {
     }()
 
     lazy var imageView: UIImageView = {
-        let view = RoundImageView()
+        let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.contentMode = .scaleAspectFit
-        view.clipsToBounds = true
         if #available(iOS 13.0, *) {
             view.tintColor = UIAccessibility.isDarkerSystemColorsEnabled ? .label : .secondaryLabel
         } else {
@@ -184,11 +198,7 @@ internal final class DropView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         button.clipsToBounds = true
-        if #available(iOS 13.0, *) {
-            button.backgroundColor = .link
-        } else {
-            button.backgroundColor = .blue
-        }
+		button.backgroundColor = .systemBlue
         button.tintColor = .white
         button.imageView?.contentMode = .scaleAspectFit
         button.contentEdgeInsets = .init(top: 7.5, left: 7.5, bottom: 7.5, right: 7.5)
@@ -211,6 +221,7 @@ internal final class DropView: UIView {
         view.axis = .horizontal
         view.alignment = .center
         view.distribution = .fill
+		view.semanticContentAttribute = .forceRightToLeft
         if drop.icon != nil && drop.action?.icon != nil {
             view.spacing = 20
         } else {
