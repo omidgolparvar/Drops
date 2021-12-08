@@ -56,5 +56,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Vazir-Regular.ttf</string>
+		<string>Vazir-Bold.ttf</string>
+	</array>
 </dict>
 </plist>

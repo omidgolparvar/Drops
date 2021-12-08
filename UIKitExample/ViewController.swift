@@ -193,8 +193,10 @@ final class ViewController: UIViewController {
         let buttonIcon = buttonSwitch.isOn ? UIImage(systemName: "arrowshape.turn.up.left") : nil
 
         let drop = Drop(
-            title: title,
-            subtitle: subtitle,
+            title: "این یک متن نمونه است که می‌تواند دارای بیشتر از یک خط  نیز باشد. پس باید به درستی نمایش داده شود.",
+			titleFont: UIFont(name: "Vazir-Bold", size: 12),
+            subtitle: "این یک متن نمونه است که می‌تواند دارای بیشتر از یک خط  نیز باشد. پس باید به درستی نمایش داده شود.",
+			subtitleFont: UIFont(name: "Vazir-Regular", size: 11),
             icon: icon,
             action: .init(icon: buttonIcon, handler: {
                 print("Drop tapped")
